@@ -1,20 +1,30 @@
 import React from 'react';
 import './App.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { Box } from '@mui/material';
+import Main from './layout/Main';
+import Home from './pages/Home';
+import ExerciseDetail from './pages/ExerciseDetail';
 
 const router = createBrowserRouter([
     {
         path: '/',
-        element: ''
+        element: <Main />,
+        children: [
+            {
+                path: '/',
+                element: <Home />
+            },
+            {
+                path: '/exercise/:id',
+                element: <ExerciseDetail />
+            }
+        ]
     }
 ])
 
 const App = () => {
     return (
-        <Box width={`400px`}>
-            <RouterProvider router={router} />
-        </Box>
+        <RouterProvider router={router} />
     );
 };
 
