@@ -6,14 +6,12 @@ import { exerciseOptions, fetchData } from '../utils/fetchData';
 
 const Exercises = () => {
 
-    const { exercises, setExercises, bodyPart } = useContext(CategoryContext)
+    const { exercises, setExercises, bodyPart } = useContext(CategoryContext);
     const [currentPage, setCurrentPage] = useState(1);
     const exercisesPerPage = 9;
 
     const indexOfLastExercise = currentPage * exercisesPerPage;
     const indexOfFirstExercise = indexOfLastExercise - exercisesPerPage;
-
-    console.log(exercises);
 
     const currentExercises = exercises.slice(indexOfFirstExercise, indexOfLastExercise)
 
@@ -32,9 +30,8 @@ const Exercises = () => {
                 exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
             } else {
                 exercisesData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`, exerciseOptions);
-                
-        // exercisesData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`, exerciseOptions);
             }
+            console.log(exercisesData);
             setExercises(exercisesData)
         }
         fetchExercisesData()

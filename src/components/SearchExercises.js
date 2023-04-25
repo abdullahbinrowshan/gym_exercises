@@ -8,7 +8,7 @@ const SearchExercises = () => {
 
     const [search, setSearch] = useState('');
     const [bodyParts, setBodyParts] = useState([]);
-    const {exercises, setExercises} = useContext(CategoryContext)
+    const {setExercises} = useContext(CategoryContext)
 
     useEffect(() => {
         const fetchExercisesData = async () => {
@@ -87,7 +87,7 @@ const SearchExercises = () => {
                 </Button>
             </Box>
             <Box sx={{ position: 'relative', width: '100%', p: '20px' }}>
-                <HorizontalScrollBar data={bodyParts} />
+                <HorizontalScrollBar data={bodyParts} isBodyParts />
             </Box>
         </Stack>
     );

@@ -6,7 +6,7 @@ const ExerciseCard = ({ exercise }) => {
     return (
         <Link className='exercise-card' to={`/exercise/${exercise.id}`}>
             <img src={exercise.gifUrl} alt={exercise.name} loading='lazy' />
-            <Stack direction={'column-reverse'} gap={'8px'} alignItems={'baseline'} >
+            <Stack direction={'row'} gap={'8px'} alignItems={'baseline'} >
                 <Button
                     sx={{
                         ml: "21px", color: '#fff', background: '#ffa9a9', fontSize: '14px', borderRadius: '20px', textTransform: 'capitalize'
